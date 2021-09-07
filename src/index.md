@@ -1,8 +1,7 @@
 ---
 layout: base.njk
-title: Väldigt mysigt
 ---
 
-# Nu med SÅS!!!
+# Wälkom to my lörning blåg
 
-Detta är content från markdown.
+Väry teknålågi!
