@@ -1,11 +1,6 @@
 ---
 title: Blog
-layout: base.njk
+layout: blog.njk
 ---
-## All posts
 
-<ul>
-{% for post in collections.post %}
-<li><a href="{{ post.url }}">{{ post.data.title }}</a></li>
-{% endfor %}
-</ul>
+## All posts
