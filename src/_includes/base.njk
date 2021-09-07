@@ -7,9 +7,9 @@
     <title>{{ meta.siteTitle }}</title>
     <link rel="stylesheet" href="{{ '/css/main.css' }}">
   </head>
-  <body class="flow">
+  <body class="container">
     {% include "components/navigation.njk"%}
-    <main class="flow">
+    <main class="container">
       {{ content | safe }}
     </main>
     {% include "components/footer.njk" %}
