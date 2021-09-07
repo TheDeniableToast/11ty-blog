@@ -5,12 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ meta.siteTitle }}</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="{{ '/css/main.css' }}">
   </head>
-  <body>
+  <body class="container">
     {% include "components/navigation.njk"%}
-    <main>
+    <main class="container">
       {{ content | safe }}
     </main>
+    {% include "components/footer.njk" %}
   </body>
 </html>

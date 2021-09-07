@@ -4,7 +4,12 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "start": "eleventy --serve"
+        "watch:sass": "sass --no-source-map --watch src/scss:_site/css",
+        "watch:eleventy": "eleventy --serve",
+        "build:sass": "sass --no-source-map src/scss:_site/css",
+        "build:eleventy": "eleventy",
+        "start": "npm-run-all --parallel watch:*",
+        "build": "npm-run-all --parallel build:*"
     },
     "repository": {
         "type": "git",
@@ -18,6 +23,10 @@
     },
     "homepage": "https://github.com/TheDeniableToast/11ty-blog#readme",
     "dependencies": {
-        "@11ty/eleventy": "^0.12.1"
+        "@11ty/eleventy": "^0.12.1",
+        "modularscale": "^2.0.1",
+        "modularscale-sass": "^3.0.10",
+        "npm-run-all": "^4.1.5",
+        "sass": "^1.39.0"
     }
 }
