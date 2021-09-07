@@ -1,23 +1,23 @@
 {
-  "name": "11ty-blog",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "start": "eleventy --serve"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/TheDeniableToast/11ty-blog.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/TheDeniableToast/11ty-blog/issues"
-  },
-  "homepage": "https://github.com/TheDeniableToast/11ty-blog#readme",
-  "dependencies": {
-    "@11ty/eleventy": "^0.12.1"
-  }
+    "name": "11ty-blog",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "eleventy --serve"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/TheDeniableToast/11ty-blog.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/TheDeniableToast/11ty-blog/issues"
+    },
+    "homepage": "https://github.com/TheDeniableToast/11ty-blog#readme",
+    "dependencies": {
+        "@11ty/eleventy": "^0.12.1"
+    }
 }
