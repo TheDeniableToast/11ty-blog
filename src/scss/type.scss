@@ -30,3 +30,8 @@ h2 {
 h3 {
     font-size: ms(1);
 }
+
+.posts li {
+    display: flex;
+    flex-direction: column;
+}
