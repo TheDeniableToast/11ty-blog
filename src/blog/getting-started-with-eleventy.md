@@ -2,6 +2,8 @@
 title: Getting started with eleventy
 ---
 
+{% raw %}
+
 [Eleventy](https://www.11ty.dev/) is what you would call a Static Site Generator (SSG). All pages on a statically generated website are pre-generated on a server which removes the need for the websites visitor to wait for them to be rendered in real time, thus practically removing any loading time between the pages. In this blog post i will teach you how to set up eleventy with nunjucks and sass and then create a blog with it.
 
 ## Installation
@@ -79,3 +81,120 @@ This code tells eleventy to use the ```src``` folder for source code and other c
     "authorEmail": "filip.norberg@elev.ga.ntig.se"
 }
 ```
+
+## Basic layout/scss
+
+Create a folder called ```_includes``` inside ```src``` and create a file inside that folder called ```base.njk```. This will be the base-layout for all the pages we will create. Let's add some basic html like this:
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ meta.siteTitle }}</title>
+    <link rel="stylesheet" href="{{ '/css/main.css' }}">
+  </head>
+  <body>
+    {% include "components/navigation.njk"%}
+    <main class="container">
+      {{ content | safe }}
+    </main>
+    {% include "components/footer.njk" %}
+  </body>
+</html>
+```
+
+```meta.siteTitle``` was of course declared in the ```meta.json``` file we created. ```{{ content | safe }}``` is what you could call the customizable part of every page. It will be replaced by the contents of any created file that extends from this base layout. Of course this is only html and we will get to scss later. First we need to adress ```{% include "components/navigation.njk"%}``` and ```{% include "components/footer.njk" %}```. These are files that we have not created yet, let's change that. First we need to create a file called ```navigation.json``` inside a folder called ```_data``` which will be placed in the ```src``` folder. This file will be the start of our navbar, it will contain the links to our pages which the navbar can use:
+```json
+{
+    "items": [
+        {
+            "text": "Home",
+            "url": "/"
+        },
+        {
+            "text": "Blog",
+            "url": "/blog"
+        }
+    ]
+}
+```
+The next step is to create the navbar itself. Create a folder called ```components``` and place it in the ```_includes``` folder. Create a file called navigation.njk in the ```components``` folder and use this code:
+```html
+{% if navigation.items %}
+    <nav>
+        <ul>
+            {% for item in navigation.items %}
+                <li class="navbar">
+                    <a href="{{ item.url }}">{{ item.text }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </nav>
+{% endif %}
+```
+This for loop generates an ```li``` element for every link in ```navigation.json```. Now for the footer, create a file called ```footer.njk``` inside the ```components``` folder and use this code:
+```html
+ <footer class="container">
+    <p>This page is created by <a href="mailto:{{meta.authorEmail}}">{{ meta.authorName }}</a></p>
+    <p>All text &copy; {{ meta.authorName }}</p>
+    <p>This is version {{ pkg.version }} of this site and the source is available on 
+        <a href="{{ pkg.homepage }}">Github</a></p>
+</footer>
+```
+This code gives us some text at the bottom of every page, such as your name and links to your email and github. It also shows which version of the website is running. this is accomplished by eleventy being able to read globally accesible variables, in this case it reads ```pkg``` variables in order to obtain values from ```package.json```
+
+## Creating pages
+This part of the guide is dedicated to creating the different pages on the site. We will create a blog posts, a blog page with links to those posts and a home page.'
+
+### Home page
+Open up ```index.md``` and insert our base layout:
+```
+---
+title: Blog
+layout: base.njk
+---
+
+# Welcome to my cool web blog
+
+Very technology!
+```
+The text between the three dashes gives the page a title and tells it what layout to use, in this case ```base.njk```.
+
+### Blog page
+Create a new ```.md``` file called ```blog.md``` in the ```src``` folder and type the following:
+```
+---
+title: Blog
+layout: blog.njk
+---
+
+## All posts
+```
+Now create a file called ```blog.njk``` inside the ```components``` folder and type in the following:
+```
+---
+layout: base.njk
+title: All posts
+---
+
+{{ content | safe }}
+{% include "components/postlist.njk" %}
+```
+In order for the blog page to display links to all of our upcoming blog posts we need to create a file called ```postlist.njk``` inside the ```components``` folder and fill it with the following code:
+```
+<ul>
+    {% for post in collections.post %}
+        <li>
+            <a href="{{ post.url }}">{{ post.data.title }}</a>
+            {% if post.data.excerpt %}
+                <p>{{ post.data.excerpt }}</p>
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>
+```
+Here we are using the same kind of for loop as in ```navigation.njk```. ```collections.post``` lists all files with the tag ```post```. We will add that tag to all blog posts.
+
+{% endraw %} 
