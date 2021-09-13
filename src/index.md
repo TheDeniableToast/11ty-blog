@@ -1,7 +1,8 @@
 ---
+title: Blog
 layout: base.njk
 ---
 
-# Wälkom to my lörning blåg
+# Welcome to my cool web blog
 
-Väry teknålågi!
+Very technology!
