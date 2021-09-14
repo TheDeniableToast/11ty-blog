@@ -1,13 +1,8 @@
 ---
-title: Tjena Världen!
+title: Hello World!
 ---
 
-Detta är min första lilla blogpost.
-Den är helt gudomlig.
-Om du inte tycker det har du fel 😠😠😠
+This is my first little blog post.
+It is absolutely iconic
 
-Jag gillar att skriva i md, det är kuligt tycker jag!!!
-
-```html
-<h1>Här är en rubrik</h1>
-```
+I love writing in md, it is really fun!

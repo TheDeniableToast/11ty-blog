@@ -84,7 +84,7 @@ This code tells eleventy to use the ```src``` folder for source code and other c
 
 ## Basic layout/scss
 
-Create a folder called ```_includes``` inside ```src``` and create a file inside that folder called ```base.njk```. This will be the base-layout for all the pages we will create. Let's add some basic html like this:
+Create a folder called ```_includes``` inside ```src```, the underscore is needed for the folder to not become a route. Create a file inside that folder called ```base.njk```. This will be the base-layout for all the pages we will create. Let's add some basic html like this:
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -147,7 +147,8 @@ This code gives us some text at the bottom of every page, such as your name and 
 
 ## Creating pages
 This part of the guide is dedicated to creating the different pages on the site. We will create a blog posts, a blog page with links to those posts and a home page.'
-
+```
+```
 ### Home page
 Open up ```index.md``` and insert our base layout:
 ```
@@ -161,7 +162,8 @@ layout: base.njk
 Very technology!
 ```
 The text between the three dashes gives the page a title and tells it what layout to use, in this case ```base.njk```.
-
+```
+```
 ### Blog page
 Create a new ```.md``` file called ```blog.md``` in the ```src``` folder and type the following:
 ```
@@ -196,5 +198,44 @@ In order for the blog page to display links to all of our upcoming blog posts we
 </ul>
 ```
 Here we are using the same kind of for loop as in ```navigation.njk```. ```collections.post``` lists all files with the tag ```post```. We will add that tag to all blog posts.
+```
+```
+### Blog posts
+
+In order to create our blog posts, we need somewhere to store them. Create a folder inside ```src``` called ```blog```. Inside that folder we will create a file called ```blog.json``` and fill it with this:
+```json
+{
+    "layout": "base.njk",
+    "tags": "post"
+}
+```
+This file will now make sure that every page that we create in this ```blog``` folder will get these declared values. Now for our first blog post. Go ahead and create an ```md``` file and call it whatever you want, i chose to name mine ```helloworld.md```. Now write something like this:
+```markdown
+---
+title: Hello World!
+---
+
+This is my first little blog post.
+It is absolutely iconic
+
+I love writing in md, it is really fun!
+```
+You can now take a look at ```localhost:8080/blog/``` and see your blog post in the list of posts, your new post can be found at ```localhost:8080/blog/hello-world```
+
+## Styling
+How about we finally make some use out of the sass that we installed before. Create a folder inside ```src``` and name it ```scss```. Inside ```scss``` we will create a file called ```main.scss```. You can write whatever styles you want in this file, i ended up using partial files and linking them in this main document like this:
+```
+@import "reset";
+
+@import "type";
+
+@import "utilities/container";
+
+@import "components/navigation";
+```
+Remember to keep your partial files in the ```scss``` folder and/or in subfolders and that every one of them start with an underscore.
+
+## Hosting on Netlify
+This is it. Time to post your beautiful creation on the internet. Start by creating an account on Netlify or log in if you already have an account. Find the button that says "New site from Git" and click on it. Authorize your GitHub account and choose the correct repository. Use ```npm run build``` as the build command and ```_site``` as the publish directory and leave everything else as default. Click "Publish" and after a few moments your website will be hosted. Congratulations! Your website is now live!
 
 {% endraw %} 
