@@ -1,0 +1,7 @@
+<ul class="repos">
+    {% for item in repos %}
+        <li>
+            <a href="{{ item.html_url }}">{{ item.name }}</a>
+        </li>
+    {% endfor %}
+</ul>
