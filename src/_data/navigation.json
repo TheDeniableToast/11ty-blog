@@ -7,6 +7,10 @@
         {
             "text": "Blog",
             "url": "/blog"
+        },
+        {
+            "text": "Repos",
+            "url": "/repos"
         }
     ]
 }

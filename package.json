@@ -24,6 +24,7 @@
     "homepage": "https://github.com/TheDeniableToast/11ty-blog#readme",
     "dependencies": {
         "@11ty/eleventy": "^0.12.1",
+        "axios": "^0.21.4",
         "modularscale": "^2.0.1",
         "modularscale-sass": "^3.0.10",
         "npm-run-all": "^4.1.5",
