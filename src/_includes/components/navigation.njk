@@ -1,8 +1,8 @@
 {% if navigation.items %}
     <nav>
-        <ul>
+        <ul class="navbar">
             {% for item in navigation.items %}
-                <li class="navbar">
+                <li>
                     <a href="{{ item.url }}">{{ item.text }}</a>
                 </li>
             {% endfor %}
