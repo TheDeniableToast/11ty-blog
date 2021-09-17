@@ -2,6 +2,8 @@
 title: Getting started with eleventy
 ---
 
+# Getting started with eleventy
+
 {% raw %}
 
 [Eleventy](https://www.11ty.dev/) is what you would call a Static Site Generator (SSG). All pages on a statically generated website are pre-generated on a server which removes the need for the websites visitor to wait for them to be rendered in real time, thus practically removing any loading time between the pages. In this blog post i will teach you how to set up eleventy with nunjucks and sass and then create a blog with it.
