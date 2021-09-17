@@ -3,4 +3,4 @@ title: Blog
 layout: blog.njk
 ---
 
-## All posts
+# Blog posts
