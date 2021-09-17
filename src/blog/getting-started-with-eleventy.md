@@ -2,9 +2,16 @@
 title: Getting started with eleventy
 ---
 
+# Getting started with eleventy
+
 {% raw %}
 
+
+
 [Eleventy](https://www.11ty.dev/) is what you would call a Static Site Generator (SSG). All pages on a statically generated website are pre-generated on a server which removes the need for the websites visitor to wait for them to be rendered in real time, thus practically removing any loading time between the pages. In this blog post i will teach you how to set up eleventy with nunjucks and sass and then create a blog with it.
+
+```
+```
 
 ## Installation
 Open wsl and install node and npm.
@@ -145,6 +152,9 @@ This for loop generates an ```li``` element for every link in ```navigation.json
 ```
 This code gives us some text at the bottom of every page, such as your name and links to your email and github. It also shows which version of the website is running. this is accomplished by eleventy being able to read globally accesible variables, in this case it reads ```pkg``` variables in order to obtain values from ```package.json```
 
+```
+```
+
 ## Creating pages
 This part of the guide is dedicated to creating the different pages on the site. We will create a blog posts, a blog page with links to those posts and a home page.'
 ```
@@ -222,6 +232,9 @@ I love writing in md, it is really fun!
 ```
 You can now take a look at ```localhost:8080/blog/``` and see your blog post in the list of posts, your new post can be found at ```localhost:8080/blog/hello-world```
 
+```
+```
+
 ## Styling
 How about we finally make some use out of the sass that we installed before. Create a folder inside ```src``` and name it ```scss```. Inside ```scss``` we will create a file called ```main.scss```. You can write whatever styles you want in this file, i ended up using partial files and linking them in this main document like this:
 ```
@@ -234,6 +247,9 @@ How about we finally make some use out of the sass that we installed before. Cre
 @import "components/navigation";
 ```
 Remember to keep your partial files in the ```scss``` folder and/or in subfolders and that every one of them start with an underscore.
+
+```
+```
 
 ## Hosting on Netlify
 This is it. Time to post your beautiful creation on the internet. Start by creating an account on Netlify or log in if you already have an account. Find the button that says "New site from Git" and click on it. Authorize your GitHub account and choose the correct repository. Use ```npm run build``` as the build command and ```_site``` as the publish directory and leave everything else as default. Click "Publish" and after a few moments your website will be hosted. Congratulations! Your website is now live!
