@@ -161,7 +161,7 @@ This part of the guide is dedicated to creating the different pages on the site.
 ```
 ### Home page
 Open up ```index.md``` and insert our base layout:
-```
+```html
 ---
 title: Blog
 layout: base.njk
@@ -176,7 +176,7 @@ The text between the three dashes gives the page a title and tells it what layou
 ```
 ### Blog page
 Create a new ```.md``` file called ```blog.md``` in the ```src``` folder and type the following:
-```
+```html
 ---
 title: Blog
 layout: blog.njk
@@ -185,7 +185,7 @@ layout: blog.njk
 ## All posts
 ```
 Now create a file called ```blog.njk``` inside the ```components``` folder and type in the following:
-```
+```html
 ---
 layout: base.njk
 title: All posts
@@ -195,7 +195,7 @@ title: All posts
 {% include "components/postlist.njk" %}
 ```
 In order for the blog page to display links to all of our upcoming blog posts we need to create a file called ```postlist.njk``` inside the ```components``` folder and fill it with the following code:
-```
+```html
 <ul>
     {% for post in collections.post %}
         <li>
@@ -237,7 +237,7 @@ You can now take a look at ```localhost:8080/blog/``` and see your blog post in 
 
 ## Styling
 How about we finally make some use out of the sass that we installed before. Create a folder inside ```src``` and name it ```scss```. Inside ```scss``` we will create a file called ```main.scss```. You can write whatever styles you want in this file, i ended up using partial files and linking them in this main document like this:
-```
+```css
 @import "reset";
 
 @import "type";
