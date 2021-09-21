@@ -1,7 +1,14 @@
 // .eleventy.js
+const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 
 module.exports = function (eleventyConfig) {
-    eleventyConfig.addWatchTarget('src/css');
+
+    eleventyConfig.addPlugin(syntaxHighlight);
+
+    eleventyConfig.addPlugin(pluginRss);
+
+    eleventyConfig.addWatchTarget('src/scss');
+
     return {
         dir: {
             input: 'src'
